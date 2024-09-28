@@ -7,7 +7,7 @@ class OnReady(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f"{self.user} is ready !")
+        print(f"{self.bot.user} is ready !")
 
 async def setup(bot):
     await bot.add_cog(OnReady(bot))
