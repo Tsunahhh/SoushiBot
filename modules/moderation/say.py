@@ -6,7 +6,7 @@ class Say(commands.Cog):
     def __init__(self, bot) -> None:
         self.bot = bot
 
-    @app_commands.commands(name="say", description="Parler avec le bot")
+    @app_commands.command(name="say", description="Parler avec le bot")
     async def say(self, interaction: discord.Interaction, msg: str) -> None:
         """
             Say somethings with the bot
