@@ -6,10 +6,10 @@ from config import TOKEN
 class Soushi(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.load_moderation()
+        self.load_modules()
 
-    def load_modules(self, path: str):
-        for file_name in os.listdir(f"./modules/{path}"):
+    def load_files(self, path: str):
+        for file_name in os.listdir(f"./{path}"):
             if file_name.endswith(".py"):
                 cog = f"cogs.{file_name[:-3]}"
                 try:
@@ -18,12 +18,10 @@ class Soushi(commands.Bot):
                 except Exception as e:
                     print(f"Failed to load {cog}: {e}")
 
-        async def on_ready(self):
-            print(f"{self.user} is ready !")
-                    
-
-    def load_moderation(self):
-        self.load_modules("moderation")
+    def load_modules(self):
+        self.load_files("modules/moderation")
+        self.load_files("modules/basic")
+        self.load_files("events")
 
 
 def main():
