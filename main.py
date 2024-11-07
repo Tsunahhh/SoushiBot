@@ -20,6 +20,8 @@ class Soushi(commands.Bot):
     async def setup_hook(self):
         await self.load_files("modules/moderation")
         await self.load_files("modules/basic")
+        await self.load_files("modules/fun")
+        await self.load_files("modules/skid")
         await self.load_files("events")
         await self.tree.sync()
 
