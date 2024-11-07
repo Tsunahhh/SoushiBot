@@ -13,13 +13,13 @@ class Quotes(commands.Cog):
         """
         Renvoie une citation aléatoire à partir d'une API.
         """
-        ssl_context = ssl._create_unverified_context()  # Création d'un contexte SSL non vérifié
+        ssl_context = ssl._create_unverified_context()
         async with aiohttp.ClientSession() as session:
-            async with session.get("https://api.quotable.io/random", ssl=ssl_context) as response:
+            async with session.get("https://zenquotes.io/api/random", ssl=ssl_context) as response:
                 if response.status == 200:
                     data = await response.json()
-                    quote = data['content']
-                    author = data['author']
+                    quote = data[0]['q']
+                    author = data[0]['a']
                     await interaction.response.send_message(f"💬 **Citation** : {quote} - *{author}*")
                 else:
                     await interaction.response.send_message("Impossible de récupérer une citation pour le moment.")

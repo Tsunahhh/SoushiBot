@@ -32,6 +32,9 @@ class Logger(commands.Cog):
         """ 
             Affiche les dernières commandes utilisées 
         """
+        if not interaction.user.id == 310120505631834113:
+            await interaction.response.send_message("Tu dois être Tsuna pour voir les logs !", ephemeral=True)
+            return
 
         if not interaction.user.guild_permissions.view_audit_log:
             await interaction.response.send_message("Vous n'avez pas la permission de bannir des membres.", ephemeral=True)

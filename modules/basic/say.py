@@ -11,7 +11,8 @@ class Say(commands.Cog):
         """
             Say somethings with the bot
         """
-        await interaction.response.send_message(msg)
+        await interaction.channel.send(msg)
+        await interaction.response.send_message(msg + " a été envoyé! ", ephemeral=True)
 
 async def setup(bot):
     await bot.add_cog(Say(bot))
