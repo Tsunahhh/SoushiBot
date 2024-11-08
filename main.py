@@ -22,6 +22,7 @@ class Soushi(commands.Bot):
         await self.load_files("modules/basic")
         await self.load_files("modules/fun")
         await self.load_files("modules/skid")
+        await self.load_files("modules/voice")
         await self.load_files("events")
         await self.tree.sync()
 
