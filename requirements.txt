@@ -1,1 +1,4 @@
 discord.py
+PyNaCl
+groq
+yt_dlp
